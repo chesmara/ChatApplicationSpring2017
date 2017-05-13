@@ -34,19 +34,29 @@ dependencies {
     //Android Annotations
     apt "org.androidannotations:androidannotations:$AAVersion"
     compile "org.androidannotations:androidannotations-api:$AAVersion"
+    apt "org.androidannotations:otto:$AAVersion"
 
+    //OTTO EVENT BUS
 
-   //Firebase
+    //Firebase
     compile "com.google.firebase:firebase-auth:$FVersion"
 
     //Google Play Serveices
     compile "com.google.android.gms:play-services-auth:$FVersion"
 
+    compile 'com.squareup:otto:1.3.8'
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
-   compile 'com.google.firebase:firebase-auth:10.0.1'
-    testCompile 'junit:junit:4.12'
+    compile 'com.google.firebase:firebase-auth:10.0.1'
+    compile 'com.google.firebase:firebase-database:10.2.4'
+    compile 'com.android.support:design:25.3.1'
     compile 'junit:junit:4.12'
+    compile 'com.android.support:support-v4:25.3.1'
+    testCompile 'junit:junit:4.12'
+
+
+    compile 'com.android.support:cardview-v7:25.3.1'
+    compile 'com.android.support:recyclerview-v7:25.3.1'
 }
 
 apply plugin: 'com.google.gms.google-services'

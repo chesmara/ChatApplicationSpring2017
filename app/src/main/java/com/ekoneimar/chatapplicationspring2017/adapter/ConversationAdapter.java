@@ -8,7 +8,10 @@ import android.widget.BaseAdapter;
 import com.ekoneimar.chatapplicationspring2017.View.ConversationItemView;
 import com.ekoneimar.chatapplicationspring2017.View.ConversationItemView_;
 import com.ekoneimar.chatapplicationspring2017.dao.ConversationDao;
+import com.ekoneimar.chatapplicationspring2017.evenbus.OttoBus;
+import com.ekoneimar.chatapplicationspring2017.evenbus.event.ConverstationsUpdatedEvent;
 import com.ekoneimar.chatapplicationspring2017.model.Conversation;
+import com.squareup.otto.Subscribe;
 
 import org.androidannotations.annotations.AfterInject;
 import org.androidannotations.annotations.Bean;
@@ -33,9 +36,14 @@ public class ConversationAdapter extends BaseAdapter {
     @Bean
     ConversationDao conversationDao;
 
+    @Bean
+    OttoBus bus;
+
     @AfterInject
     void init(){
-        setConversations(conversationDao.getConversations());
+        bus.register(this);
+        //setConversations(conversationDao.getConversations());
+       //conversationDao.write(new Conversation(null, "Conversation"));
     }
 
 
@@ -74,5 +82,10 @@ public class ConversationAdapter extends BaseAdapter {
     private void setConversations(List<Conversation> conversations) {
         this.conversations = conversations;
         notifyDataSetChanged();
+    }
+
+    @Subscribe
+    public void conversationsUpdated(ConverstationsUpdatedEvent event) {
+        setConversations(conversationDao.getConversations());
     }
 }

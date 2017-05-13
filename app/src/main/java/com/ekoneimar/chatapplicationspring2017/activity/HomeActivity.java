@@ -12,8 +12,10 @@ import com.google.firebase.auth.FirebaseAuth;
 
 import org.androidannotations.annotations.AfterViews;
 import org.androidannotations.annotations.Bean;
+import org.androidannotations.annotations.Click;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.ItemClick;
+import org.androidannotations.annotations.OptionsItem;
 import org.androidannotations.annotations.ViewById;
 
 @EActivity(R.layout.activity_home)
@@ -38,5 +40,19 @@ public class HomeActivity extends AppCompatActivity {
     @ItemClick
     void listViewItemClicked(Conversation conversation) {
 
+        ConversationActivity_
+                .intent(this)
+                .conversation(conversation)
+                .start();
     }
+
+
+
+
+    @Click
+    void fab(){
+        CreateConversationActivity_.intent(this).start();
+    }
+
+
 }
