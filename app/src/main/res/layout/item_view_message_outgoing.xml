@@ -13,7 +13,7 @@
         android:layout_marginBottom="@dimen/x_small_margin"
         android:orientation="vertical">
 
-        <ImageView
+        <com.facebook.drawee.view.SimpleDraweeView
             android:id="@+id/userPhoto"
             style="@style/userPhotoStyle" />
 

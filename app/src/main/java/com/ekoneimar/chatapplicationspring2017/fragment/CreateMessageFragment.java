@@ -10,6 +10,7 @@ import android.widget.EditText;
 
 import com.ekoneimar.chatapplicationspring2017.R;
 import com.ekoneimar.chatapplicationspring2017.dao.MessageDao;
+import com.ekoneimar.chatapplicationspring2017.dao.UserDao;
 import com.ekoneimar.chatapplicationspring2017.model.Conversation;
 import com.ekoneimar.chatapplicationspring2017.model.Message;
 
@@ -32,6 +33,9 @@ public class CreateMessageFragment extends Fragment {
     @Bean
     MessageDao messageDao;
 
+    @Bean
+    UserDao userDao;
+
     @ViewById
     EditText messageText;
 
@@ -47,7 +51,7 @@ public class CreateMessageFragment extends Fragment {
                 return;
             }
 
-            final Message message = new Message(text);
+            final Message message = new Message(userDao.getCurrentUser(), text);
             messageDao.write(message);
             messageText.setText("");
         }

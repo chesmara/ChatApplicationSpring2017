@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal">
 
     <LinearLayout
@@ -10,9 +11,10 @@
         android:layout_marginBottom="@dimen/x_small_margin"
         android:orientation="vertical">
 
-        <ImageView
+        <com.facebook.drawee.view.SimpleDraweeView
             android:id="@+id/userPhoto"
-            style="@style/userPhotoStyle" />
+            style="@style/userPhotoStyle"
+            fresco:roundedCornerRadius="25dp"/>
 
         <TextView
             android:id="@+id/messageTime"

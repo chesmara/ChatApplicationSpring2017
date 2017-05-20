@@ -6,10 +6,12 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.ekoneimar.chatapplicationspring2017.R;
+import com.ekoneimar.chatapplicationspring2017.adapter.MessageAdapter;
 import com.ekoneimar.chatapplicationspring2017.fragment.CreateMessageFragment;
 import com.ekoneimar.chatapplicationspring2017.model.Conversation;
 
 import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.Bean;
 import org.androidannotations.annotations.EActivity;
 import org.androidannotations.annotations.Extra;
 import org.androidannotations.annotations.FragmentByTag;
@@ -28,6 +30,9 @@ public class ConversationActivity extends AppCompatActivity {
     @ViewById
     RecyclerView recyclerView;
 
+    @Bean
+    MessageAdapter messageAdapter;
+
     @AfterViews
     void init(){
         createMessageFragment.initFor(conversation);
@@ -37,6 +42,8 @@ public class ConversationActivity extends AppCompatActivity {
     public void initRecyclerView(){
         recyclerView.setLayoutManager(
                 new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, true));
+        recyclerView.setAdapter(messageAdapter);
+        messageAdapter.initFor(conversation);
     }
 
 }

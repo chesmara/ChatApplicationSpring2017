@@ -46,6 +46,11 @@ public class ConversationAdapter extends BaseAdapter {
        //conversationDao.write(new Conversation(null, "Conversation"));
     }
 
+    public void resetConversationFlow(){
+        conversationDao.init();
+    }
+
+
 
 
 
@@ -87,5 +92,6 @@ public class ConversationAdapter extends BaseAdapter {
     @Subscribe
     public void conversationsUpdated(ConverstationsUpdatedEvent event) {
         setConversations(conversationDao.getConversations());
+        notifyDataSetChanged();
     }
 }

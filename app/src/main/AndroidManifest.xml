@@ -3,6 +3,7 @@
     package="com.ekoneimar.chatapplicationspring2017">
 
     <application
+        android:name=".ChatApplication_"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -18,7 +19,8 @@
         </activity>
         <activity android:name=".activity.LoginActivity_" />
         <activity android:name=".activity.CreateConversationActivity_" />
-        <activity android:name=".activity.ConversationActivity_"></activity>
+        <activity android:name=".activity.ConversationActivity_"/>
+        <activity android:name=".activity.BaseActivity_"/>
     </application>
 
 </manifest>

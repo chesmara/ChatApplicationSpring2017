@@ -38,7 +38,7 @@ public class ConversationDao  {
 
 
     @AfterInject
-    void init(){
+    public void init(){
         database.getReference(CONVERSATION_TAG).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
